@@ -232,6 +232,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+function updateBuilding(key) {
+    const data = buildingData[key];
+
+    elements.buildingImg.style.opacity = "0.1";
+
+    setTimeout(() => {
+        elements.buildingImg.src = data.img;  // ✔ using path from JS only
+        elements.buildingImg.style.opacity = "1";
+    }, 150);
+
+    elements.buildingDesc.innerHTML = data.desc;
+    elements.dropdownButtonText.innerHTML = data.name;
+
+    document.querySelectorAll(".dropdown-item").forEach(el => el.classList.remove("active"));
+    document.querySelector(`.dropdown-item[data-key="${key}"]`).classList.add("active");
+}
+
+
+
 
 
 
