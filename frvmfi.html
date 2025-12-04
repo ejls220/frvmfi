@@ -166,48 +166,32 @@
         </div>
 
         <!-- Right Column: Dropdown & Description -->
-        <div class="col-lg-6">
-            <div class="mb-4">
-                <div class="dropdown">
-                    <button id="dropdownButton" class="btn btn-primary dropdown-toggle w-100 py-3" type="button" data-toggle="dropdown">
-                        <span class="material-icons mr-2">location_on</span>
-                        <span id="selectedBuildingName">Select Building</span>
-                    </button>
-                    <div class="dropdown-menu w-100" id="buildingDropdown">
-                        <input type="text" id="buildingSearchInput" class="form-control" placeholder="Search buildings..." aria-label="Search">
-                        <!-- Dropdown items will be populated by JS -->
-                    </div>
-                </div>
+
+            <div class="col-lg-6" id="detailsContainer">
+        <h1 class="text-uppercase text-primary mb-4">CAMPUS LANDMARKS</h1>
+        
+        <div class="dropdown mb-4">
+            <button id="dropdownButton" class="btn btn-primary dropdown-toggle w-100 py-3" type="button" data-toggle="dropdown">
+                <span class="material-icons mr-2">location_on</span>
+                <span id="selectedBuildingName">Select Building</span>
+            </button>
+            <div class="dropdown-menu w-100" id="buildingDropdown">
+                <input type="text" id="buildingSearchInput" class="form-control" placeholder="Search buildings..." aria-label="Search">
+                <!-- Dropdown items populated by JS -->
             </div>
-
-            <p id="buildingDesc">Select a building from the dropdown menu to see details.</p>
         </div>
+
+        <p id="buildingDesc">Select a building from the dropdown menu to see details.</p>
     </div>
-</div>
 
 
-
-
-                <!-- Right Column: Dropdown & Description -->
-                <div class="col-lg-6">
-                    <div class="mb-3">
-                        <button id="dropdownButton" class="btn btn-primary dropdown-toggle w-100 py-3" type="button" data-toggle="dropdown">
-                            <span class="material-icons mr-2">location_on</span>
-                            <span id="selectedBuildingName">Select Building</span>
-                        </button>
-                        <div class="dropdown-menu w-100" id="buildingDropdown">
-                            <input type="text" id="buildingSearchInput" class="form-control" placeholder="Search..." aria-label="Search">
-                            <!-- Add building items here -->
-                        </div>
+                        <p id="buildingDesc">Select a building from the dropdown menu to see details.</p>
                     </div>
 
-                    <p id="buildingDesc">Select a building from the dropdown menu to see details.</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 
 
 
@@ -670,6 +654,7 @@
 
 
 </html>
+
 
 
 
