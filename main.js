@@ -160,11 +160,11 @@ document.addEventListener("DOMContentLoaded", function () {
         dropdownButtonText: document.getElementById("selectedBuildingName"),
         buildingImg: document.getElementById("buildingImg"),
         buildingDesc: document.getElementById("buildingDesc"),
-        searchInput: document.getElementById("buildingSearchInput"), 
+        searchInput: document.getElementById("buildingSearchInput"),
     };
 
     // Populate Dropdown
-    function populateUI() {
+    function populateDropdown() {
         Object.keys(buildingData).forEach(key => {
             const data = buildingData[key];
 
@@ -200,37 +200,36 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBuilding(key) {
         const data = buildingData[key];
 
-        // Image transition
-        elements.buildingImg.style.opacity = '0.1'; 
-        setTimeout(() => {
-            elements.buildingImg.src = data.img;
-            elements.buildingImg.style.opacity = '1'; 
-        }, 150); 
+        // Only update if different image
+        if (elements.buildingImg.src !== window.location.origin + data.img) {
+            // Optional: fade transition
+            elements.buildingImg.style.transition = "opacity 0.3s";
+            elements.buildingImg.style.opacity = '0';
+            setTimeout(() => {
+                elements.buildingImg.src = data.img;
+                elements.buildingImg.style.opacity = '1';
+            }, 150);
+        }
 
-        // Description
+        // Update description and dropdown button text
         elements.buildingDesc.innerHTML = data.desc;
-
-        // Dropdown button
         elements.dropdownButtonText.innerHTML = data.name;
 
-        // Active state
+        // Set active item
         document.querySelectorAll(".dropdown-item").forEach(el => el.classList.remove("active"));
-        document.querySelector(`.dropdown-item[data-key="${key}"]`).classList.add("active");
-
-        // Scroll into view on small screens
-        if (window.innerWidth < 992) {
-            elements.buildingImg.scrollIntoView({ behavior: "smooth" });
-        }
+        const activeItem = document.querySelector(`.dropdown-item[data-key="${key}"]`);
+        if (activeItem) activeItem.classList.add("active");
     }
 
     // Initialize
-    populateUI();
-    updateBuilding("ground"); 
+    populateDropdown();
+    updateBuilding("ground"); // Set initial building
 
     if (elements.searchInput) {
         elements.searchInput.addEventListener("keyup", filterBuildings);
     }
 });
+
 
 
 
