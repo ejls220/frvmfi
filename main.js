@@ -196,6 +196,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    function filterBuildings() {
+        const filter = elements.searchInput.value.toUpperCase();
+        const items = elements.dropdown.querySelectorAll(".dropdown-item");
+
+        items.forEach(item => {
+            const text = item.textContent || item.innerText;
+            item.style.display = text.toUpperCase().includes(filter) ? "" : "none";
+        });
+    }
+
     // Update building info
     function updateBuilding(key) {
         const data = buildingData[key];
@@ -232,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
         elements.searchInput.addEventListener("keyup", filterBuildings);
     }
 });
+
 
 
 
